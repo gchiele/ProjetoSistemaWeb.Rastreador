@@ -1,0 +1,62 @@
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\appsettings.Development.json
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\appsettings.json
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.staticwebassets.runtime.json
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.exe
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.deps.json
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.runtimeconfig.json
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.dll
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.pdb
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.csproj.AssemblyReference.cache
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.GeneratedMSBuildEditorConfig.editorconfig
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.AssemblyInfoInputs.cache
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.AssemblyInfo.cs
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.csproj.CoreCompileInputs.cache
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.MvcApplicationPartsAssemblyInfo.cache
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.RazorAssemblyInfo.cache
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.RazorAssemblyInfo.cs
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets\msbuild.ProjetoRastreador.Microsoft.AspNetCore.StaticWebAssets.props
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets\msbuild.build.ProjetoRastreador.props
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ProjetoRastreador.props
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ProjetoRastreador.props
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets.pack.json
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets.build.json
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets.development.json
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\scopedcss\bundle\ProjetoRastreador.styles.css
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\scopedcss\projectbundle\ProjetoRastreador.bundle.scp.css
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.dll
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\refint\ProjetoRastreador.dll
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.pdb
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.genruntimeconfig.cache
+G:\Meu Drive\Faculdade\2023_1\ProjetoSistemaWeb\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ref\ProjetoRastreador.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\appsettings.Development.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\appsettings.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.staticwebassets.runtime.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.exe
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.deps.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.runtimeconfig.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\bin\Debug\net6.0\ProjetoRastreador.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.csproj.AssemblyReference.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.GeneratedMSBuildEditorConfig.editorconfig
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.AssemblyInfoInputs.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.AssemblyInfo.cs
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.csproj.CoreCompileInputs.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.MvcApplicationPartsAssemblyInfo.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.RazorAssemblyInfo.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.RazorAssemblyInfo.cs
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets\msbuild.ProjetoRastreador.Microsoft.AspNetCore.StaticWebAssets.props
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets\msbuild.build.ProjetoRastreador.props
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ProjetoRastreador.props
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ProjetoRastreador.props
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets.pack.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets.build.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\staticwebassets.development.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\scopedcss\bundle\ProjetoRastreador.styles.css
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\scopedcss\projectbundle\ProjetoRastreador.bundle.scp.css
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\refint\ProjetoRastreador.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ProjetoRastreador.genruntimeconfig.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador\obj\Debug\net6.0\ref\ProjetoRastreador.dll
