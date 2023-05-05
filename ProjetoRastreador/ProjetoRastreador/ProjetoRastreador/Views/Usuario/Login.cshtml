@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<body class="bg-primary">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                <div class="card-body">
+                                    <form method="post" action="\Usuario\Login">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" name="usuarioWeb.Email" id="inputEmail" type="email" placeholder="name@example.com" />
+                                            <label for="inputEmail">Endereço de Email</label>
+                                            @Html.ValidationMessage("usuarioWeb.Email")
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" name="usuarioWeb.Senha" id="inputPassword" type="password" placeholder="Senha" />
+                                            <label for="inputPassword">Senha</label>
+                                            @Html.ValidationMessage("usuarioWeb.Senha")
+                                        </div>                                      
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+                                            <label class="form-check-label" for="inputRememberPassword">Lembrar Senha</label>
+                                        </div>
+
+                                        @Html.ValidationMessage("Mensagem")
+
+                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                            <a class="small">@Html.ActionLink("Esqueceu sua senha?", "EsqueceuSenha")</a>                                          
+                                            <input class="btn btn-primary" type="submit" value="Login">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer text-center py-3">
+                                    <div class="small"><a>@Html.ActionLink("Precisa de uma conta? Inscrever-se!", "Inscrever")</a></div>
+                                </div>              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div id="layoutAuthentication_footer">
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,251 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor;
+@model DispositivoMapaModel;
+
+@{
+    ViewData["Title"] = "Tempo Real";
+}
+
+
+<body class="sb-nav-fixed" onload="Inicio()">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <h3 class="navbar-brand ps-3">GChiele Automação</h3>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0 invisible">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Procurar..." aria-label="Procurar..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/Usuario/MinhaConta">Minha Conta</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="/Usuario/Sair">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+
+                        <a class="nav-link" href="/Dispositivo/MapaTempoReal/@{@Model.IdUsuarioDispositivo}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-angle-left"></i></div>
+                            Voltar
+                        </a>                
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logado como:</div>
+                    @httpContextAccessor.HttpContext.Session.GetString("NomeUsuario")
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">@{
+                            @Model.Nome
+                        }</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Mapa Historico</li>
+                        <li class="breadcrumb-item active" id="CampoUltimaAtualizacao"></li>
+                    </ol>
+
+                    <div id="mapa" style="width: 100%; height: 50vh;">
+                        <!-- Monta dinamicamente o Mapa -->
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="datahora_inicio">Data e Hora Início:</label>
+                                    <input type="datetime-local" id="datahora_inicio" name="datahora_inicio" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="datahora_fim">Data e Hora Fim:</label>
+                                    <input type="datetime-local" id="datahora_fim" name="datahora_fim" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-4 mb-4">
+                            <div id="BotaoEstado" class="mx-auto">
+                                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="BuscaDadosMapa()">Pesquisar</button>
+                            </div>
+                        </div>     
+                    </div>
+                                       
+                    @Html.ValidationMessage("Mensagem")
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+@section Scripts{
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjIgpUxyyc0h5MXXB1iNl9oGYNN4-_aIA"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <script>
+
+        const ID_USUARIO = '@httpContextAccessor.HttpContext.Session.GetString("IdUsuario")';
+        const ID_USUARIO_DISPOSITIVO = '@{@Model.IdUsuarioDispositivo}';
+        const NOME_DISPOSITIVO = '@{@Model.Nome}';
+
+        // Variaveis do mapa
+        var mapa;
+        var DataInicial, DataFinal;
+
+        function Inicio() {
+
+            CarregaDataHoraDefault();
+
+        }
+
+        function CarregaDataHoraDefault(){
+
+
+            // Obter o elemento do campo datetime-local
+            var dataHoraFim = document.getElementById('datahora_fim');
+
+            // Obter a data e hora atual com a timezone do cliente
+            var dataAtual = new Date();
+            var offset = dataAtual.getTimezoneOffset();
+            var horaLocal = new Date(dataAtual.getTime() - (offset * 60 * 1000));
+
+            // Formatar a data e hora atual para o formato suportado pelo campo datetime-local
+            var dataHoraAtual = horaLocal.toISOString().slice(0, 16);
+
+            // Definir o valor do campo com a data e hora atual formatada
+            dataHoraFim.value = dataHoraAtual;
+
+
+
+            var dataHoraInicio = document.getElementById('datahora_inicio');
+
+            // Obter a data e hora atual com a timezone do cliente
+            var dataAtual = new Date();
+            var offset = dataAtual.getTimezoneOffset();
+            var horaLocal = new Date(dataAtual.getTime() - (offset * 60 * 1000));
+
+            // Subtrair 2 horas da hora local
+            horaLocal.setHours(horaLocal.getHours() - 2);
+
+            // Formatar a data e hora atual para o formato suportado pelo campo datetime-local
+            var dataHoraAtual = horaLocal.toISOString().slice(0, 16);
+
+            // Definir o valor do campo com a data e hora atual formatada
+            dataHoraInicio.value = dataHoraAtual;
+
+        }
+
+        function BuscaDadosMapa() {
+            DataInicial = document.getElementById("datahora_inicio").value;
+            DataFinal = document.getElementById("datahora_fim").value;
+
+            $.post("/Dispositivo/BuscaDadosMapa",
+                // dados
+                {
+                    id: ID_USUARIO_DISPOSITIVO,
+                    dataInicio: DataInicial,
+                    dataFim: DataFinal
+                },
+                // sucesso
+                function (resposta) {
+                    MontaGrafico(resposta);
+                }
+            );
+        }
+
+
+        function MontaGrafico(dados) {
+
+            // Verificar se o objeto mapa existe
+            if (mapa) {
+                // Remove todos os eventos ligados à instância do mapa
+                google.maps.event.clearInstanceListeners(mapa);
+                // Define a variável 'mapa' como null
+                mapa = null;
+
+                document.getElementById('mapa').innerHTML = "";
+            }
+
+            if (dados.length > 0) {
+                var coordenadasFinais = { lat: dados[dados.length - 1].latitude, lng: dados[dados.length - 1].longitude };
+
+                // Cria um objeto Map com as opções de exibição do mapa
+                mapa = new google.maps.Map(document.getElementById('mapa'), {
+                    zoom: 15, // Zoom inicial
+                    center: coordenadasFinais, // Centro do mapa
+                    mapTypeId: google.maps.MapTypeId.ROADMAP // Tipo de mapa
+                });
+
+                // Crie um objeto Polyline para desenhar a rota
+                var rotaPolyline = new google.maps.Polyline({
+                    path: [], // Caminho vazio para começar
+                    strokeColor: '#FF0000', // Cor da linha
+                    strokeOpacity: 1.0, // Opacidade da linha
+                    strokeWeight: 2 // Espessura da linha
+                });
+
+                // Adicione a rotaPolyline ao mapa
+                rotaPolyline.setMap(mapa);
+
+                for (var i = 0; i < dados.length; i++) {
+                    rotaPolyline.getPath().push(new google.maps.LatLng(dados[i].latitude, dados[i].longitude));
+
+                    // Adicionar marcador de partida no primeiro ponto
+                    if (i === 0) {
+                        var partidaMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(dados[i].latitude, dados[i].longitude),
+                            icon: 'https://maps.google.com/mapfiles/kml/paddle/grn-blank.png', // ícone de largada verde
+                            map: mapa
+                        });
+                    }
+
+                    // Adicionar marcador de chegada no último ponto
+                    if (i === dados.length - 1) {
+                        var chegadaMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(dados[i].latitude, dados[i].longitude),
+                            icon: 'https://maps.google.com/mapfiles/kml/paddle/red-blank.png', // ícone de chegada vermelho
+                            map: mapa
+                        });
+                    }
+                }
+            }           
+
+            var DataInicialFormatada = moment(DataInicial).format('DD/MM/YYYY HH:mm:ss');
+            var DataFinalFormatada = moment(DataFinal).format('DD/MM/YYYY HH:mm:ss');
+
+            document.getElementById("CampoUltimaAtualizacao").innerHTML = DataInicialFormatada + " ate " + DataFinalFormatada + " / Quantidade de Pontos: " + dados.length;
+        }
+
+    </script>
+}

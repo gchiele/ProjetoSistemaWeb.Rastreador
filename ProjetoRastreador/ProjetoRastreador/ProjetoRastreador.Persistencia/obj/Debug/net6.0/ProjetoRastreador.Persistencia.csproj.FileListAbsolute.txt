@@ -1,0 +1,15 @@
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\bin\Debug\net6.0\ProjetoRastreador.Persistencia.deps.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\bin\Debug\net6.0\ProjetoRastreador.Persistencia.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\bin\Debug\net6.0\ProjetoRastreador.Persistencia.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\bin\Debug\net6.0\ProjetoRastreador.Dominio.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\bin\Debug\net6.0\ProjetoRastreador.Dominio.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ProjetoRastreador.Persistencia.csproj.AssemblyReference.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ProjetoRastreador.Persistencia.GeneratedMSBuildEditorConfig.editorconfig
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ProjetoRastreador.Persistencia.AssemblyInfoInputs.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ProjetoRastreador.Persistencia.AssemblyInfo.cs
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ProjetoRastreador.Persistencia.csproj.CoreCompileInputs.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ProjetoRastreador.Persistencia.csproj.CopyComplete
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ProjetoRastreador.Persistencia.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\refint\ProjetoRastreador.Persistencia.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ProjetoRastreador.Persistencia.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Persistencia\obj\Debug\net6.0\ref\ProjetoRastreador.Persistencia.dll

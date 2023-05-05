@@ -1,4 +1,4 @@
-namespace ProjetoRastreador.Models
+namespace ProjetoRastreador.Web.Models
 {
     public class ErrorViewModel
     {

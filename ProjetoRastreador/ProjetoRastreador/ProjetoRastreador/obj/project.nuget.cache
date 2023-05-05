@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "tytReyL8iXVcriTqjLERi9Kc2lorF/CD2zOvL3Yy5kpQPHvM8aRV1VtZ1k8kDle2AaFj+GC1ghCZrApnpgseGA==",
+  "dgSpecHash": "HphJL4cK9Fs0wWTEOMKZsFzf9rtA0aXe5hReXhzvjk42KJ9L4/D6cG35C7R/8q1jjPFEZ18NQ+r49P32Z5SU4g==",
   "success": true,
-  "projectFilePath": "C:\\RepositoriosGit\\ProjetoSistemaWeb.Rastreador\\ProjetoRastreador\\ProjetoRastreador\\ProjetoRastreador\\ProjetoRastreador.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\RepositoriosGit\\ProjetoSistemaWeb.Rastreador\\ProjetoRastreador\\ProjetoRastreador\\ProjetoRastreador\\ProjetoRastreador.Web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\guilh\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\npgsql\\7.0.2\\npgsql.7.0.2.nupkg.sha512",
+    "C:\\Users\\guilh\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

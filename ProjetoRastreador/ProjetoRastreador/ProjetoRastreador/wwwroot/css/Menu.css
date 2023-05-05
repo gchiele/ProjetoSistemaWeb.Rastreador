@@ -1,0 +1,36 @@
+﻿#menu {
+    background-color: whitesmoke;
+    min-width: 400px;
+}
+
+#menu ul {
+    margin-left: -40px;
+    align-items: center;
+    background-color: #3399ff;
+    list-style: none;
+}
+
+#menu ul li {
+    display: inline;
+}
+
+#menu ul li a {
+    font-weight: bold;
+    padding: 10px 10px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: #3399ff;
+}
+
+#menu ul li a:hover {
+    color: black;
+}
+
+.AlinharDireita {
+    float: right;
+}
+
+#PaginaAtual {
+    background-color: rgb(0, 190, 0) !important;
+}

@@ -1,0 +1,110 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor;
+@model DispositivoEditarModel;
+
+@{
+    ViewData["Title"] = "Editar Dispositivo";
+}
+
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <h3 class="navbar-brand ps-3">GChiele Automação</h3>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0 invisible">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Procurar..." aria-label="Procurar..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/Usuario/MinhaConta">Minha Conta</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="/Usuario/Sair">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Dispositivo</div>
+                        <a class="nav-link" href="/Dispositivo/MapaTempoReal/@{@Model.IdUsuarioDispositivo}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-angle-left"></i></div>
+                            Voltar
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logado como:</div>
+                    @httpContextAccessor.HttpContext.Session.GetString("NomeUsuario")
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-5 border-dark rounded-lg mt-5 ">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Editar Dispositivo</h3></div>
+                                <div class="card-body">
+                                    <form method="post" action="\Dispositivo\SalvarDispositivo">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputNomeDispositivo" name="dispositivoWeb.Nome" type="text" value="@{@Model.Nome}" placeholder="Nome do Dispositivo" />
+                                            <label for="inputNomeDispositivo">Nome do Dispositivo</label>
+                                            @Html.ValidationMessage("dispositivoWeb.Nome")
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputCodigo" name="dispositivoWeb.Codigo" type="text" readonly required pattern="[a-zA-Z0-9]+" value="@{@Model.Codigo}" placeholder="Codigo Dispositivo" />
+                                            <label for="inputCodigo">Codigo do Dispositivo</label>
+                                            @Html.ValidationMessage("dispositivoWeb.Codigo")
+                                        </div>
+
+                                        <input name="dispositivoWeb.IdUsuarioDispositivo" value="@{@Model.IdUsuarioDispositivo}" type="hidden" />
+
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid">
+                                                <input class="btn btn-primary" type="submit" value="Salvar Dispositivo">
+                                            </div>
+                                        </div>
+                                        @Html.ValidationMessage("Mensagem")
+                                    </form>
+                                </div>
+
+                                <div class="card-footer text-center py-3">
+                                    <div class="small"><a href="/Dispositivo/MapaTempoReal/@{@Model.IdUsuarioDispositivo}">Voltar</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+

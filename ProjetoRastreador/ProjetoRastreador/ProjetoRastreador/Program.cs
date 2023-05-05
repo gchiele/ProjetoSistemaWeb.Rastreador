@@ -3,6 +3,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//Configuracao da Sessao
+builder.Services.AddSession(option =>
+{
+    option.IdleTimeout = TimeSpan.FromMinutes(20);
+    option.Cookie.Name = "Rastreador";
+    option.Cookie.HttpOnly = true;
+    option.Cookie.IsEssential = true;
+});
+//permitir acesso ao cookie pela view
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,8 +31,11 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//habilita o cookie/sessao
+app.UseSession();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
+    pattern: "{controller=Usuario}/{action=Index}/{id?}");
 
 app.Run();

@@ -1,0 +1,188 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor;
+
+@{
+    ViewData["Title"] = "Dispositivos";  
+}
+
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <h3 class="navbar-brand ps-3">GChiele Automação</h3>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0 invisible">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Procurar..." aria-label="Procurar..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/Usuario/MinhaConta">Minha Conta</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="/Usuario/Sair">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">                                            
+                        <div class="sb-sidenav-menu-heading">Dispositivo</div>
+                        <a class="nav-link" href="/Dispositivo/Adicionar">
+                            <div class="sb-nav-link-icon"><i class="fas fas fa-plus"></i></div>
+                            Adicionar Novo
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logado como:</div>
+                    @httpContextAccessor.HttpContext.Session.GetString("NomeUsuario")
+                </div>
+            </nav>
+        </div>
+        
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Dispositivos</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+
+                    <div class="row" id="ListaDispositivos">
+                        <!-- Monta dinamicamente os dispositivos -->
+
+                    </div>                   
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+@section Scripts{
+    <script>
+        const ID_USUARIO = '@httpContextAccessor.HttpContext.Session.GetString("IdUsuario")';
+
+        Inicio();
+
+        function Inicio() {     
+            BuscaDadosDispositivos();
+            setInterval(BuscaDadosDispositivos, 5000);
+        }
+
+
+        function BuscaDadosDispositivos() {
+
+            $.post("/Dispositivo/ListaStatusDispositivos",
+                // dados
+                {
+                   
+                },
+                // sucesso
+                function (resposta) {
+                    document.getElementById("ListaDispositivos").innerHTML = "";
+
+                    for (let i = 0; i < resposta.length; i++) {                      
+                        NewDispositivo(resposta[i]);
+                    }
+                
+                }
+            );
+        }
+
+        function NewDispositivo(Dispositivo) {
+
+            /*
+               1 <div class="col-xl-3 col-md-6">
+                   2 <div class="card bg-primary text-white mb-4">
+                       3 <div class="card-body">Dispositivo 1</div>
+                       4 <div class="card-footer d-flex align-items-center justify-content-between">
+                            <span class="small text-white">Status: Online</span>
+                        </div>
+                       5 <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="#">Detalhes</a>
+                          6  <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>                      
+                    </div>
+                </div>
+            */
+
+            const div1 = document.createElement('div');
+            div1.className = 'col-xl-3 col-md-6';
+
+            const div2 = document.createElement('div');
+            if (Dispositivo.online) {
+                div2.className = 'card bg-success text-white mb-4';
+            }else{
+                div2.className = 'card bg-danger text-white mb-4';
+            }
+
+            const div3 = document.createElement('div');
+            div3.className = 'card-body';
+            div3.innerHTML = "Nome: " + Dispositivo.nome;
+            div2.appendChild(div3);
+
+            const div4 = document.createElement('div');
+            div4.className = 'card-footer d-flex align-items-center justify-content-between';
+
+            const span1 = document.createElement('span');
+            span1.className = 'small text-white';
+            if (Dispositivo.online) {
+                span1.innerHTML = "Status: Online";
+            }else{
+                span1.innerHTML = "Status: OffLine";
+            }
+
+            div4.appendChild(span1);
+            div2.appendChild(div4);
+
+            const div5 = document.createElement('div');
+            div5.className = 'card-footer d-flex align-items-center justify-content-between';
+
+            const a1 = document.createElement('a');
+            a1.className = 'small text-white stretched-link';
+            a1.href = "/Dispositivo/MapaTempoReal/" + Dispositivo.idUsuarioDispositivo;
+            a1.innerHTML = "Acessar o Dispositivo";
+
+            div5.appendChild(a1);
+
+            const div6 = document.createElement('div');
+            div6.className = 'small text-white';
+
+            const i1 = document.createElement('i');
+            i1.className = 'fas fa-angle-right';
+
+            div6.appendChild(i1);
+            div5.appendChild(div6);
+
+            div2.appendChild(div5);
+
+            div1.appendChild(div2);
+
+            const divPai = document.getElementById("ListaDispositivos");
+            divPai.appendChild(div1);
+        }
+
+    </script>
+}
