@@ -1,0 +1,17 @@
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\bin\Release\net6.0\ProjetoRastreador.Aplicacao.deps.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\bin\Release\net6.0\ProjetoRastreador.Aplicacao.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\bin\Release\net6.0\ProjetoRastreador.Aplicacao.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\bin\Release\net6.0\ProjetoRastreador.Dominio.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\bin\Release\net6.0\ProjetoRastreador.Persistencia.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\bin\Release\net6.0\ProjetoRastreador.Dominio.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\bin\Release\net6.0\ProjetoRastreador.Persistencia.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ProjetoRastreador.Aplicacao.csproj.AssemblyReference.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ProjetoRastreador.Aplicacao.GeneratedMSBuildEditorConfig.editorconfig
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ProjetoRastreador.Aplicacao.AssemblyInfoInputs.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ProjetoRastreador.Aplicacao.AssemblyInfo.cs
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ProjetoRastreador.Aplicacao.csproj.CoreCompileInputs.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ProjetoRastreador.Aplicacao.csproj.CopyComplete
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ProjetoRastreador.Aplicacao.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\refint\ProjetoRastreador.Aplicacao.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ProjetoRastreador.Aplicacao.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Aplicacao\obj\Release\net6.0\ref\ProjetoRastreador.Aplicacao.dll

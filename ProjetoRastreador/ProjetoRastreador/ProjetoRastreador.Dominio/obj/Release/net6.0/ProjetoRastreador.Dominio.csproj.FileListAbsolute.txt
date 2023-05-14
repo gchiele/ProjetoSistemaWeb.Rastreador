@@ -1,0 +1,12 @@
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\bin\Release\net6.0\ProjetoRastreador.Dominio.deps.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\bin\Release\net6.0\ProjetoRastreador.Dominio.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\bin\Release\net6.0\ProjetoRastreador.Dominio.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\ProjetoRastreador.Dominio.csproj.AssemblyReference.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\ProjetoRastreador.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\ProjetoRastreador.Dominio.AssemblyInfoInputs.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\ProjetoRastreador.Dominio.AssemblyInfo.cs
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\ProjetoRastreador.Dominio.csproj.CoreCompileInputs.cache
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\ProjetoRastreador.Dominio.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\refint\ProjetoRastreador.Dominio.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\ProjetoRastreador.Dominio.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.Dominio\obj\Release\net6.0\ref\ProjetoRastreador.Dominio.dll
