@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
-namespace Ftec.ProjetosWeb.Projeto1.Web.Models
+namespace ProjetoRastreador.Web.Models
 {
     public class UsuarioNovoModel
     {

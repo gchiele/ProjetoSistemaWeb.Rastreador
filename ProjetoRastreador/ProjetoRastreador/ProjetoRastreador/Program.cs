@@ -1,3 +1,5 @@
+using ProjetoRastreador.Web.Filtros;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +13,13 @@ builder.Services.AddSession(option =>
     option.Cookie.HttpOnly = true;
     option.Cookie.IsEssential = true;
 });
+
+//Adiciona os servicos
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add<FiltroExcessao>();
+});
+
 //permitir acesso ao cookie pela view
 builder.Services.AddHttpContextAccessor();
 

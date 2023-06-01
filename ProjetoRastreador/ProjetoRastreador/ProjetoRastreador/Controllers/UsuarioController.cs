@@ -1,14 +1,23 @@
-﻿using Ftec.ProjetosWeb.Projeto1.Web.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjetoRastreador.Aplicacao.Aplicacao;
 using ProjetoRastreador.Dominio.Entidades;
+using ProjetoRastreador.Web.API;
 using ProjetoRastreador.Web.Models;
+using System.Net.Http;
 
 namespace ProjetoRastreador.Controllers
 {
     public class UsuarioController : Controller
     {
+
+        private APIHttpClient httpClient;
+
+        public UsuarioController()
+        {
+            httpClient = new APIHttpClient(@"http://localhost:5203/api/");
+        }
+
         public IActionResult Index()
         {
             return View("Login");
@@ -32,25 +41,21 @@ namespace ProjetoRastreador.Controllers
             return RedirectToAction("Index");
         }
 
-
+        // Tela Login
         [HttpPost]
 
         public IActionResult Login(UsuarioLoginModel usuarioWeb)
-        {
-            UsuarioAplicacao usuarioAplicacao = new UsuarioAplicacao();
-            Usuario usuario = new Usuario();
-
-            usuario.Senha = usuarioWeb.Senha;
-            usuario.Email = usuarioWeb.Email;
-
+        {    
             if (ModelState.IsValid)
-            {
-                Guid id = usuarioAplicacao.UsuarioLogin(usuario);
+            {              
+                Guid id = httpClient.Put<UsuarioLoginModel>("Usuario/Login", usuarioWeb);
+
                 if (id != Guid.Empty)
                 {
-                    usuario = usuarioAplicacao.BuscaUsuario(id);
-                    HttpContext.Session.SetString("IdUsuario", usuario.Id.ToString());
-                    HttpContext.Session.SetString("NomeUsuario", usuario.Nome);
+                    var usuarioModel = httpClient.Get<UsuarioModel>("usuario/" + id.ToString());
+               
+                    HttpContext.Session.SetString("IdUsuario", usuarioModel.Id.ToString());
+                    HttpContext.Session.SetString("NomeUsuario", usuarioModel.Nome);
 
                     return RedirectToAction("Index", "Dispositivo");
                 }
@@ -62,21 +67,17 @@ namespace ProjetoRastreador.Controllers
             return View();
         }
 
-        public IActionResult NovoUsuario(UsuarioNovoModel usuarioWeb) 
-        {
-            UsuarioAplicacao usuarioAplicacao = new UsuarioAplicacao();
-            Usuario usuario = new Usuario();
 
+        // Tela Criar Conta
+        public IActionResult NovoUsuario(UsuarioNovoModel usuarioWeb) 
+        {           
             if (ModelState.IsValid)
             {
                 if (usuarioWeb.Senha == usuarioWeb.ConfirmaSenha)
                 {
-                    usuario.Senha = usuarioWeb.Senha;
-                    usuario.Email = usuarioWeb.Email;
-                    usuario.Nome = usuarioWeb.Nome;
-                    usuario.Fone = usuarioWeb.Fone;
+                    var Id = httpClient.Post<UsuarioNovoModel>("Usuario/NovoUsuario", usuarioWeb);
 
-                    if (usuarioAplicacao.NovoUsuario(usuario) != Guid.Empty)
+                    if (Id != Guid.Empty)
                     {
                         return RedirectToAction("Index");
                     }
@@ -89,8 +90,7 @@ namespace ProjetoRastreador.Controllers
                 {
                     ModelState.AddModelError("Mensagem", "Senhas estao diferentes");  
                 }
-            }
-       
+            }    
             return View("Inscrever");
         }
 
@@ -107,22 +107,16 @@ namespace ProjetoRastreador.Controllers
             {
                 if (usuarioWeb.NovaSenha == usuarioWeb.ConfirmaNovaSenha)
                 {
-                    UsuarioAplicacao usuarioAplicacao = new UsuarioAplicacao();
-                    UsuarioEditarModel usuarioEditarModel = new UsuarioEditarModel();
-                    usuarioEditarModel = DadosUsuarioEditar();
+                    UsuarioVerificarSenha usuarioVerificarSenha = new UsuarioVerificarSenha();
+                    usuarioVerificarSenha.Id = usuarioWeb.Id;
+                    usuarioVerificarSenha.Senha = usuarioWeb.NovaSenha;
 
-  
-                    if(usuarioAplicacao.VerificaSenha(usuarioWeb.Id, usuarioWeb.SenhaAtual))              
-                    {                       
-                        Usuario usuario = new Usuario();
+                    Guid Id = httpClient.Put<UsuarioVerificarSenha>("Usuario/VerificaSenha", usuarioVerificarSenha);
 
-                        usuario.Id = usuarioWeb.Id;
-                        usuario.Senha = usuarioWeb.NovaSenha;
-                        usuario.Fone = usuarioWeb.Fone;
-                        usuario.Email = usuarioWeb.Email;
-                        usuario.Nome = usuarioWeb.Nome;
-
-                        if (usuarioAplicacao.SalvaUsuario(usuario))
+                    if(Id != Guid.Empty)              
+                    {
+                        Id = httpClient.Put<UsuarioEditarModel>("Usuario/SalvarConta", usuarioWeb);
+                        if (Id != Guid.Empty)
                         {
                             return RedirectToAction("Index", "Dispositivo");
                         }
@@ -139,16 +133,7 @@ namespace ProjetoRastreador.Controllers
         {
             Guid IdUsuario = Guid.Parse(HttpContext.Session.GetString("IdUsuario"));
 
-            UsuarioAplicacao usuarioAplicacao = new UsuarioAplicacao();
-            Usuario usuario = new Usuario();
-            UsuarioEditarModel usuarioEditarModel = new UsuarioEditarModel();
-
-            usuario = usuarioAplicacao.BuscaUsuario(IdUsuario);
-
-            usuarioEditarModel.Nome = usuario.Nome;
-            usuarioEditarModel.Email = usuario.Email;
-            usuarioEditarModel.Fone = usuario.Fone;
-            usuarioEditarModel.Id = usuario.Id;
+            var usuarioEditarModel = httpClient.Get<UsuarioEditarModel>("usuario/" + IdUsuario.ToString());
 
             return usuarioEditarModel;
         }

@@ -13,6 +13,7 @@ namespace ProjetoRastreador.Persistencia.Persistencia
     public class DispositivoPersistencia
     {
         private string connectionString = "Server = localhost; Port = 5432; Database = rastreador; User Id = postgres; Password = (!-!1&L&;";
+        //private string connectionString = "Server = 10.10.0.201; Port = 5432; Database = rastreador; User Id = postgres; Password = (!-!1&L&;";
 
         public DispositivoPersistencia() { }
 
@@ -405,7 +406,7 @@ namespace ProjetoRastreador.Persistencia.Persistencia
                 using (var comando = new NpgsqlCommand())
                 {
                     comando.Connection = con;
-                    comando.CommandText = "SELECT data_hora, latitude, longitude, altitude, satelites, sinal_operadora, saida FROM " + TabelaDados + " WHERE data_hora >= @DataHoraInicio AND data_hora <= @DataHoraFim;";
+                    comando.CommandText = "SELECT data_hora, latitude, longitude, altitude, satelites, sinal_operadora, saida FROM " + TabelaDados + " WHERE data_hora >= @DataHoraInicio AND data_hora <= @DataHoraFim ORDER BY data_hora ASC;";
                     comando.Parameters.AddWithValue("@DataHoraInicio", dataInicio);
                     comando.Parameters.AddWithValue("@DataHoraFim", dataFim);
 
