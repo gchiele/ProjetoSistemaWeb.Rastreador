@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ProjetoRastreador.Aplicacao.Aplicacao;
-using ProjetoRastreador.Dominio.Entidades;
 using ProjetoRastreador.Web.API;
 using ProjetoRastreador.Web.Models;
 using System.Net.Http;
@@ -15,7 +13,8 @@ namespace ProjetoRastreador.Controllers
 
         public UsuarioController()
         {
-            httpClient = new APIHttpClient(@"http://localhost:5203/api/");
+             // httpClient = new APIHttpClient(@"http://localhost:10001/api/");
+            httpClient = new APIHttpClient(@"http://24.152.36.26:10001/api/");
         }
 
         public IActionResult Index()

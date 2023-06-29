@@ -3,4 +3,9 @@
 https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\guilh\OneDrive\Área de Trabalho\testesss</_PublishTargetUrl>
+    <History>True|2023-06-11T19:58:57.6925192Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
 </Project>

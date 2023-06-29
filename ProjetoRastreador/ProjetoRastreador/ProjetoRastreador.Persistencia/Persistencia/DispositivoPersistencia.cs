@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,14 +13,16 @@ namespace ProjetoRastreador.Persistencia.Persistencia
 {
     public class DispositivoPersistencia
     {
-        private string connectionString = "Server = localhost; Port = 5432; Database = rastreador; User Id = postgres; Password = (!-!1&L&;";
+        private string connectionString = "Server = localhost; Port = 10000; Database = rastreador; User Id = postgres; Password = (!-!1&L&;";
         //private string connectionString = "Server = 10.10.0.201; Port = 5432; Database = rastreador; User Id = postgres; Password = (!-!1&L&;";
 
-        public DispositivoPersistencia() { }
+
+
+        public DispositivoPersistencia() {}
 
 
         // Criar dispositivo
-        public bool CriarDispositivo(Dispositivo dispositivo)
+        public Guid CriarDispositivo(Dispositivo dispositivo)
         {         
             using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
             {
@@ -43,7 +46,7 @@ namespace ProjetoRastreador.Persistencia.Persistencia
                     int rowsAffected = comando.ExecuteNonQuery();
                 }
             }
-            return true;
+            return dispositivo.IdDispositivo;
         }
 
         public string CriarTabelaDados(string CodigoDispositivo)
@@ -131,7 +134,7 @@ namespace ProjetoRastreador.Persistencia.Persistencia
             }
         }
 
-        public bool LincarUsuarioDispositivo(Dispositivo dispositivo)
+        public Guid LincarUsuarioDispositivo(Dispositivo dispositivo)
         {
             using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
             {
@@ -153,12 +156,12 @@ namespace ProjetoRastreador.Persistencia.Persistencia
                     int rowsAffected = comando.ExecuteNonQuery();
                 }
             }
-            return true;
+            return dispositivo.IdUsuarioDispositivo;
         }     
         
 
         // Apagar dispositivo
-        public bool VerificarDispositivoSendoUsando(Guid IdDispositivo)
+        public Guid VerificarDispositivoSendoUsando(Guid IdDispositivo)
         {
             using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
             {
@@ -176,11 +179,11 @@ namespace ProjetoRastreador.Persistencia.Persistencia
                     {
                         if (reader.Read())
                         {
-                            return true;
+                            return IdDispositivo;
                         }
                         else
                         {
-                            return false;
+                            return Guid.Empty;
                         }
                     }
                 }
@@ -206,7 +209,7 @@ namespace ProjetoRastreador.Persistencia.Persistencia
             }
         }
 
-        public bool ApagaDispositivo(Guid IdDispositivo)
+        public Guid ApagaDispositivo(Guid IdDispositivo)
         {
             using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
             {
@@ -222,12 +225,16 @@ namespace ProjetoRastreador.Persistencia.Persistencia
 
                     int rowsAffected = comando.ExecuteNonQuery();
 
-                    return rowsAffected > 0;
+                    if (rowsAffected > 0)
+                    {
+                        return IdDispositivo;
+                    }
+                    return Guid.Empty;
                 }
             }
         }
         
-        public bool ApagaDispositivoUsuario(Guid IdUsuarioDispositivo)
+        public Guid ApagaDispositivoUsuario(Guid IdUsuarioDispositivo)
         {
             using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
             {
@@ -243,14 +250,18 @@ namespace ProjetoRastreador.Persistencia.Persistencia
 
                     int rowsAffected = comando.ExecuteNonQuery();
 
-                    return rowsAffected > 0;
+                    if (rowsAffected > 0)
+                    {
+                        return IdUsuarioDispositivo;
+                    }
+                    return Guid.Empty;
                 }
             }
         }
 
 
         // Salvar dispositivo
-        public bool SalvaNomeDispositivo(Guid IdUsuarioDispositivo, string Nome)
+        public Guid SalvaNomeDispositivo(Guid IdUsuarioDispositivo, string Nome)
         {
             using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
             {
@@ -267,12 +278,16 @@ namespace ProjetoRastreador.Persistencia.Persistencia
 
                     int rowsAffected = comando.ExecuteNonQuery();
 
-                    return rowsAffected > 0;
+                    if (rowsAffected > 0)
+                    {
+                        return IdUsuarioDispositivo;
+                    }
+                    return Guid.Empty;
                 }
             }
         }
 
-        public bool SalvaEstadoSaidaDispositivo(Guid IdUsuarioDispositivo, bool Estado)
+        public Guid SalvaEstadoSaidaDispositivo(Guid IdUsuarioDispositivo, bool Estado)
         {
             using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
             {
@@ -289,10 +304,15 @@ namespace ProjetoRastreador.Persistencia.Persistencia
 
                     int rowsAffected = comando.ExecuteNonQuery();
 
-                    return rowsAffected > 0;
+                    if(rowsAffected > 0)
+                    {
+                        return IdUsuarioDispositivo;
+                    }
+                    return Guid.Empty;
                 }
             }
         }
+
 
 
 
@@ -467,6 +487,39 @@ namespace ProjetoRastreador.Persistencia.Persistencia
             }
         }
 
+        public Dispositivo DadosDispositivo(string CodigoDispositivo)
+        {
+            using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
+            {
+                conexao.Open();
+
+                // consulta SQL INSERT
+                string sql = "SELECT codigo, tabela_dados, versao_firmware, comando_saida, id  FROM public.dispositivos WHERE codigo = @Codigo;";
+
+                // cria um comando SQL
+                using (NpgsqlCommand comando = new NpgsqlCommand(sql, conexao))
+                {
+                    comando.Parameters.AddWithValue("@Codigo", CodigoDispositivo);
+
+                    using (NpgsqlDataReader reader = comando.ExecuteReader())
+                    {
+                        Dispositivo dispositivo = new Dispositivo();
+                        if (reader.Read())
+                        {                         
+                            dispositivo.Codigo = reader.GetString(0);
+                            dispositivo.TabelaDados = reader.GetString(1);
+                            dispositivo.VersaoFirmware = reader.GetDouble(2);
+                            dispositivo.ComandoSaida = reader.GetBoolean(3);
+                            dispositivo.IdDispositivo = reader.GetGuid(4);
+                        }
+
+                        return dispositivo;
+                    }
+                }
+            }
+        }
+
+
         public Decimal QuantidadeDados(string TabelaDados)
         {
             using (var con = new Npgsql.NpgsqlConnection(connectionString))
@@ -485,6 +538,63 @@ namespace ProjetoRastreador.Persistencia.Persistencia
             }
 
         }
+
+
+        // Salva dados Localizacao Dispositivo
+        public bool SalvaLocalizacaoDispositivo(string TabelaDados, DadosLocalizacaoDispositivo dadosLocalizacaoDispositivo)
+        {
+            using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
+            {
+                conexao.Open();
+
+                // consulta SQL INSERT
+                string sql = "INSERT INTO public."+ TabelaDados + " (data_hora, latitude, longitude, altitude, sinal_operadora, satelites, saida) VALUES('"+ dadosLocalizacaoDispositivo.DataHora + "', @latitude, @longitude, @altitude, @sinal_operadora, @satelites, @saida)";
+
+                // cria um comando SQL
+                using (NpgsqlCommand comando = new NpgsqlCommand(sql, conexao))
+                {
+
+                    // adiciona os parâmetros à consulta SQL
+                    comando.Parameters.AddWithValue("@latitude", dadosLocalizacaoDispositivo.Latitude);
+                    comando.Parameters.AddWithValue("@longitude", dadosLocalizacaoDispositivo.Longitude);
+                    comando.Parameters.AddWithValue("@altitude", dadosLocalizacaoDispositivo.Altitude);
+                    comando.Parameters.AddWithValue("@sinal_operadora", dadosLocalizacaoDispositivo.SinalOperadora);
+                    comando.Parameters.AddWithValue("@satelites", dadosLocalizacaoDispositivo.Satelites);
+                    comando.Parameters.AddWithValue("@saida", dadosLocalizacaoDispositivo.Saida);
+
+                    // executa o comando SQL
+                    int rowsAffected = comando.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }       
+        }
+    
+        public bool UpdateVersaoDispositivo(Guid IdDispositivo, double Versao)
+        {
+            using (var conexao = new Npgsql.NpgsqlConnection(connectionString))
+            {
+                conexao.Open();
+
+                // consulta SQL INSERT
+                string sql = "UPDATE public.dispositivos SET versao_firmware=@Versao  WHERE id=@id";
+
+                // cria um comando SQL
+                using (NpgsqlCommand comando = new NpgsqlCommand(sql, conexao))
+                {
+
+                    // adiciona os parâmetros à consulta SQL
+                    comando.Parameters.AddWithValue("@Versao", Versao);
+                    comando.Parameters.AddWithValue("@id", IdDispositivo);
+                 
+                    // executa o comando SQL
+                    int rowsAffected = comando.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+        }
+        
 
     }
 }

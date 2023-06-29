@@ -11,7 +11,7 @@ namespace ProjetoRastreador.Persistencia.Persistencia
 {
     public class UsuarioPersistencia
     {
-        private string connectionString = "Server = localhost; Port = 5432; Database = rastreador; User Id = postgres; Password = (!-!1&L&;";
+        private string connectionString = "Server = localhost; Port = 10000; Database = rastreador; User Id = postgres; Password = (!-!1&L&;";
         //private string connectionString = "Server = 10.10.0.201; Port = 5432; Database = rastreador; User Id = postgres; Password = (!-!1&L&;";
 
         public UsuarioPersistencia() { }

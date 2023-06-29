@@ -16,7 +16,7 @@ namespace ProjetoRastreador.Aplicacao.Aplicacao
             dispositivoPersistencia = new DispositivoPersistencia();
         }
 
-        public bool NovoDispositivo(Dispositivo dispositivo)
+        public Guid NovoDispositivo(Dispositivo dispositivo)
         {
             // Verifica se o Dispositivo Existe, se nao exixtir Cria
             dispositivo.IdDispositivo = dispositivoPersistencia.VerificarDispositivoExiste(dispositivo.Codigo);
@@ -27,14 +27,14 @@ namespace ProjetoRastreador.Aplicacao.Aplicacao
                 {
                     dispositivo.VersaoFirmware = 0;
                     dispositivo.IdDispositivo = Guid.NewGuid();
-                    if (dispositivoPersistencia.CriarDispositivo(dispositivo) == false)
+                    if (dispositivoPersistencia.CriarDispositivo(dispositivo) == Guid.Empty)
                     {          
-                        return false;
+                        return Guid.Empty;
                     }                   
                 }
                 else
                 {
-                    return false;
+                    return Guid.Empty;
                 }
             }
 
@@ -46,33 +46,36 @@ namespace ProjetoRastreador.Aplicacao.Aplicacao
                 dispositivoPersistencia.LincarUsuarioDispositivo(dispositivo);
             }
             
-            return true;
+            return dispositivo.IdDispositivo;
         }
 
-        public bool ApagarDispositivo(Guid IdUsuarioDispositivo)
+        public Guid ApagarDispositivo(Guid IdUsuarioDispositivo)
         {
             Dispositivo dispositivo = new Dispositivo();
             dispositivo = DadosDispositivo(IdUsuarioDispositivo);
 
-            if (dispositivoPersistencia.ApagaDispositivoUsuario(dispositivo.IdUsuarioDispositivo) == false)
+            if (dispositivoPersistencia.ApagaDispositivoUsuario(dispositivo.IdUsuarioDispositivo) == Guid.Empty)
             {
-                return false;
+                return Guid.Empty;
             }
 
-            if (dispositivoPersistencia.VerificarDispositivoSendoUsando(dispositivo.IdDispositivo))
+            Guid IdRetorno;
+            IdRetorno = dispositivoPersistencia.VerificarDispositivoSendoUsando(dispositivo.IdDispositivo);
+            if (IdRetorno != Guid.Empty)
             {
-                return true;
+                return IdRetorno;
             }
             else
             {
-                if (dispositivoPersistencia.ApagaDispositivo(dispositivo.IdDispositivo))
+                IdRetorno = dispositivoPersistencia.ApagaDispositivo(dispositivo.IdDispositivo);
+                if (IdRetorno != Guid.Empty)
                 {
                     if (dispositivoPersistencia.ApagarTabelaDados(dispositivo.TabelaDados))
                     {
-                        return true;
+                        return IdRetorno;
                     }  
                 }
-                return false;                
+                return Guid.Empty;                
             }
         }
 
@@ -109,12 +112,12 @@ namespace ProjetoRastreador.Aplicacao.Aplicacao
             return false;
         }
 
-        public bool SalvaNomeDispositivo(Guid IdUsuarioDispositivo, string Nome)
+        public Guid SalvaNomeDispositivo(Guid IdUsuarioDispositivo, string Nome)
         {
             return dispositivoPersistencia.SalvaNomeDispositivo(IdUsuarioDispositivo, Nome);
         }
 
-        public bool SalvaEstadoSaidaDispositivo(Guid IdUsuarioDispositivo, bool Estado)
+        public Guid SalvaEstadoSaidaDispositivo(Guid IdUsuarioDispositivo, bool Estado)
         {
             return dispositivoPersistencia.SalvaEstadoSaidaDispositivo(IdUsuarioDispositivo, Estado);
         }
@@ -137,5 +140,47 @@ namespace ProjetoRastreador.Aplicacao.Aplicacao
 
             return dadosLocalizacaoDispositivo;
        }
+
+
+        public RespostaEntradaDadosDispositivo SalvaDadosLocalizacaoDispositivo (EntradaDadosDispositivo DadosDispositivo)
+        {
+            RespostaEntradaDadosDispositivo respostaEntradaDadosDispositivo = new RespostaEntradaDadosDispositivo ();
+            Dispositivo dispositivo;
+            // busca dados dispositivo
+            dispositivo = dispositivoPersistencia.DadosDispositivo(DadosDispositivo.CodigoDispositvo);
+
+            if (dispositivo.IdDispositivo != Guid.Empty)
+            {
+                // Salva os dados de Localizacao
+                respostaEntradaDadosDispositivo.Status = "1";
+
+                foreach (DadosLocalizacaoDispositivo dadosLocalizacao in DadosDispositivo.DadosLocalizacao)
+                {
+                    bool Resultado = dispositivoPersistencia.SalvaLocalizacaoDispositivo(dispositivo.TabelaDados, dadosLocalizacao);
+
+                    if (!Resultado)
+                    {
+                        respostaEntradaDadosDispositivo.Status = "0";
+                    }
+                }
+
+                // Atualiza o Firmware atual do dispositivo
+                dispositivoPersistencia.UpdateVersaoDispositivo(dispositivo.IdDispositivo, DadosDispositivo.VesaoSoftware);
+
+                // Busca o Estado atual da Saida
+                respostaEntradaDadosDispositivo.Saida = "0";
+                if (dispositivo.ComandoSaida)
+                {
+                    respostaEntradaDadosDispositivo.Saida = "1";
+                }
+            }
+            else
+            {
+                respostaEntradaDadosDispositivo.Status = "1";
+                respostaEntradaDadosDispositivo.Saida = "1";
+            }
+         
+            return respostaEntradaDadosDispositivo;
+        }
     }
 }

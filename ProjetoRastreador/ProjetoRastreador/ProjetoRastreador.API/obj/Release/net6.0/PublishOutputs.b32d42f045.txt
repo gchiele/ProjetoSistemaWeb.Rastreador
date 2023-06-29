@@ -1,0 +1,14 @@
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.API.exe
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\appsettings.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.API.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.API.deps.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.API.runtimeconfig.json
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.API.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\Npgsql.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.Aplicacao.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.Dominio.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.Persistencia.dll
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.Aplicacao.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.Dominio.pdb
+C:\RepositoriosGit\ProjetoSistemaWeb.Rastreador\ProjetoRastreador\ProjetoRastreador\ProjetoRastreador.API\obj\Release\net6.0\PubTmp\Out\ProjetoRastreador.Persistencia.pdb

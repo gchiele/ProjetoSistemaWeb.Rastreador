@@ -29,7 +29,20 @@ namespace ProjetoRastreador.API.Controllers
             {
                 return BadRequest(ex.Message);
             }
-        }    
+        }
+
+        [HttpGet("Teste")]
+        public IActionResult Teste()
+        {
+            try
+            {
+                return Ok("Ok");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
 
         // PUT api/Usuario/Login   <UsuarioLoginModel>

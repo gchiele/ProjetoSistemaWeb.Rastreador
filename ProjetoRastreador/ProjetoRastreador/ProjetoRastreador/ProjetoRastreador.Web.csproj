@@ -30,9 +30,4 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ProjetoRastreador.Aplicacao\ProjetoRastreador.Aplicacao.csproj" />
-    <ProjectReference Include="..\ProjetoRastreador.Dominio\ProjetoRastreador.Dominio.csproj" />
-  </ItemGroup>
-
 </Project>

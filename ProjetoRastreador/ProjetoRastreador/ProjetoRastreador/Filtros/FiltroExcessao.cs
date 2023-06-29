@@ -11,7 +11,7 @@ namespace ProjetoRastreador.Web.Filtros
         {
             context.Result = new ContentResult
             {
-                Content = "Foi encontrado um Erro no Software :(",
+                Content = "Foi encontrado um Erro no Software :( - "+ context.Exception.Message,
             };
         }
     }
