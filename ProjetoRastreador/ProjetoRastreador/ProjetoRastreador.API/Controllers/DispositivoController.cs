@@ -343,26 +343,24 @@ namespace ProjetoRastreador.API.Controllers
                 foreach (DadosESP32LocalizacaoModel DadosESP32Localizacao in dadosESP32Model.Dados)
                 {
                     DadosLocalizacaoDispositivo dadosLocalizacaoDispositivo = new DadosLocalizacaoDispositivo();
-                  
-                  //  string dataHoraStringOriginal = DadosESP32Localizacao.DataHora;
 
                     // Converter a string para um objeto DateTime
-                  //  DateTime dataHoraOriginal = DateTime.ParseExact(dataHoraStringOriginal, "dd/MM/yyyy HH:mm:ss", null);
+                    DateTime dataHoraOriginal = DateTime.ParseExact(DadosESP32Localizacao.DataHora, "dd/MM/yyyy HH:mm:ss", null);
 
                     // Definir o fuso horário original da string (UTC)
-                 //   TimeZoneInfo fusoHorarioOriginal = TimeZoneInfo.Utc;
+                     TimeZoneInfo fusoHorarioOriginal = TimeZoneInfo.Utc;
 
                     // Definir o fuso horário desejado (UTC-3)
-                  //  TimeZoneInfo fusoHorarioDesejado = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
+                    TimeZoneInfo fusoHorarioDesejado = TimeZoneInfo.FindSystemTimeZoneById("E. South America Standard Time");
 
                     // Converter a data e hora para o fuso horário desejado
-                  //  DateTime dataHoraDesejada = TimeZoneInfo.ConvertTime(dataHoraOriginal, fusoHorarioOriginal, fusoHorarioDesejado);
+                    DateTime dataHoraDesejada = TimeZoneInfo.ConvertTime(dataHoraOriginal, fusoHorarioOriginal, fusoHorarioDesejado);
 
                     // Converter a data e hora para string no formato desejado
-                  //  string dataHoraStringDesejada = dataHoraDesejada.ToString("yyyy-MM-dd HH:mm:ss");
+                    string dataHoraStringConvertida = dataHoraDesejada.ToString("yyyy-MM-dd HH:mm:ss");
 
 
-                    dadosLocalizacaoDispositivo.DataHora = DadosESP32Localizacao.DataHora;
+                    dadosLocalizacaoDispositivo.DataHora = dataHoraStringConvertida;
                     dadosLocalizacaoDispositivo.Latitude = DadosESP32Localizacao.Lat;
                     dadosLocalizacaoDispositivo.Longitude = DadosESP32Localizacao.Lon;
                     dadosLocalizacaoDispositivo.Altitude = 0;

@@ -14,7 +14,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "api/usuario/teste",
-      "applicationUrl": "http://10.10.0.110:10001",
+      "applicationUrl": "http://10.10.0.111:10001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
